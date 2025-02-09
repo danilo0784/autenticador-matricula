@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- <meta charset="utf-8"> -->
+	<link rel="shortcut icon" href="assets/favicon.ico" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description"
+		content="UNIASSELVI - Centro Universitário Leonardo Da Vinci. Conheça nossos cursos de graduação e pós graduação presenciais e a distância" />
+	<title>Validador de documentos - Grupo UNIASSELVI</title>
+	<link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/default.css" />
+	<link type="text/css" rel="stylesheet" href="assets/fonts/fonts.css" />
+	<link type="text/css" rel="stylesheet" href="assets/fonts/material-icons.css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+	<style>
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main" class="pages">
+		<header class="header">
+			<div class="container">
+				<div class="tabled">
+					<div class="left">
+						<a href="https://www.uniasselvi.com.br" class="logo" title="UNIASSELVI"><img src="assets/img/logo.png"
+								alt="UNIASSELVI" /></a>
+					</div>
+					<div class="right text-right">
+						<h1 class="fz15em">Validador de documentos</h1>
+					</div>
+				</div>
+			</div>
+		</header>
+		<form id="form_param" method="post" action="">
+			<fieldset>
+				<input type="hidden" name="imtr_tipo" id="imtr_tipo" value="" />
+				<input type="hidden" name="imtr_loca" id="imtr_loca" value="" />
+				<input type="hidden" name="imdo_codi" id="imdo_codi" value="" />
+			</fieldset>
+		</form>
+		<div id="content">
+			<div class="container">
+				<h1 class="text-center">Validador de documentos</h1>
+				<div id="mensagemSucesso" class="box box-inner hidden">
+					<div class="alert alert-success">
+						<p class="text-center">
+							Documento
+							<strong>202501310014197838000000000000277737677</strong>
+							encontrado.
+						</p>
+						<p class="text-center">
+							<a href="https://autenticador-uniasselvi.static.domains/assets/AtestadodeMatriculaDanilo.pdf"
+								rel="poppost,destino,scrollbars=1,resizable=1;2,1,27773767" class="btn btn-success"
+								title="Visualizar documento">Visualizar documento</a>
+						</p>
+					</div>
+					<div class="link-branco text-center">
+						<a href="https://autenticador-uniasselvi.static.domains" class="btn btn-danger" title=" Voltar">Voltar</a>
+					</div>
+				</div>
+
+				<div id="mensagemErro" class="box box-inner hidden">
+					<div class="alert alert-danger">
+						<p class="text-center">Documento inválido!</p>
+					</div>
+					<div class="link-branco text-center">
+						<a href="https://autenticador-uniasselvi.static.domains" class="btn btn-danger" title="Voltar">Voltar</a>
+					</div>
+				</div>
+
+				<div class="box box-inner">
+					<p>
+						Aqui você poderá digitar o código de autenticação impresso em
+						nossos documentos e visualizar sua autenticidade.
+					</p>
+					<form id="formBoleto" method="post" action="#" style="margin: 0 auto" data-validate="true">
+						<fieldset class="fieldset">
+							<div class="row group">
+								<div class="col-xs-12 col-sm-offset-3 col-sm-6 item middle text-left">
+									<div class="group-form">
+										<div class="form-group">
+											<input type="text" name="imdo_chav" id="imdo_chav" maxlength="200"
+												class="form-control input-lg mask_number" placeholder="Digite o código*" required="required" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-footer row group">
+								<div class="col-xs-12 col-sm-offset-3 col-sm-6 item text-center">
+									<button type="button" id="validarBtn" class="btn btn-lg btn-default-2">
+										Clique aqui para validar
+									</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="container">
+				<p class="copyright text-center">
+					UNIASSELVI &copy; Todos os direitos reservados.
+				</p>
+			</div>
+		</footer>
+	</div>
+	<div id="uso_sistema" style="width: 1px"></div>
+
+	<script>
+		document.getElementById("validarBtn").addEventListener("click", function () {
+			const codigoDigitado = document.getElementById("imdo_chav").value.trim();
+			const codigoCorreto = "202501310014197838000000000000277737677";
+
+			document.getElementById("mensagemSucesso").classList.add("hidden");
+			document.getElementById("mensagemErro").classList.add("hidden");
+
+			if (codigoDigitado === codigoCorreto) {
+				document.getElementById("mensagemSucesso").classList.remove("hidden");
+			} else {
+				document.getElementById("mensagemErro").classList.remove("hidden");
+			}
+		});
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const links = document.querySelectorAll("a");
+
+			links.forEach(link => {
+				if (link.href.includes("https://static.app")) {
+					link.remove();
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

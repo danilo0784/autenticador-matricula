@@ -1,0 +1,59 @@
+.fz15em {
+	font-size:1.5em;
+}
+
+.mensagem_atencao p {
+	text-align: center;
+	color: red;
+}
+
+.voltar {display: none!important;}
+
+ul#nomeAluno {
+	list-style: none!important;
+}
+ul#nomeAluno p{
+	text-align: center;
+	padding-bottom:20px;
+}
+.mostra_icones {
+	display: none;
+}
+.dynamic_table thead td {
+	font-weight: bold!important;
+	text-align: center;
+	text-transform: uppercase;
+}
+.dynamic_table thead td:nth-child(4),
+.dynamic_table tbody td:nth-child(4) {
+	padding:2px 0 0 0!important; 
+}
+.dynamic_table td {
+	text-align: center;
+}
+.dynamic_table tbody td img {
+	display: none;
+}
+
+.link-branco {
+	color:#fff!important;
+}
+@media (max-width: 767px){
+	.box-inner {
+		padding:0!important;
+	}
+	.box-inner .btn {
+		margin:0!important;
+	}
+	.fz15em {
+		font-size:1em;
+	}	
+	.dynamic_table thead td,
+	.dynamic_table tbody td {
+		padding:8px 0!important; 
+	}
+	.dynamic_table thead td:nth-child(4),
+	.dynamic_table tbody td:nth-child(4) {
+		padding:2px 0 0 0!important; 
+	}
+}
